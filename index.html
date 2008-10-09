@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>ALARMd.com Internet Alarm Clock</title>
+		<meta name="author" content="Zach Leatherman, zachleat.com"/>
+		<meta name="description" content="User customizable, browser embedded online internet alarm clock.  Plays your YouTube videos, MP3's, and Last.fm streams."/>
+		<meta name="keywords" content="alarm clock, internet alarm clock, online alarm clock, alarm, youtube, last.fm"/>
+		<meta name="robots" content="index, follow"/>
+		<link rel="stylesheet" type="text/css" href="include/alarmd.css"/>
+	</head>
+	<body>
+		<div id="doc3" class="yui-t7">
+			<noscript>JavaScript is required to use ALARMd, the Internet Alarm Clock.  Instead of actually using it without JavaScript, you can go ahead and <a href="http://www.zachleat.com/web/2007/06/18/wake-up-to-youtube-on-my-internet-alarm-clock/" title="Read about ALARMd">read about what fun</a> you could be having if you had JavaScript turned on.</noscript>
+			<div id="hd">
+				<label id="title"><a href="http://www.alarmd.com">ALARMd<span>.com</span></a><span class="hide-naked"> by <a href="http://www.zachleat.com/">zachleat</a></span><span id="calendarTitle"></span></label>
+				<label id="about" class="hide-naked"><a href="http://www.zachleat.com/web/2008/04/06/alarmd-2-beta-with-google-calendar-integration/" title="Read about ALARMd">Readme</a></label>
+				<label for="naked-mode"><input id="naked-mode" type="checkbox" class="checkbox" value="on" /> Naked</label>
+			</div>
+			<div id="bd">
+				<div id="clock">
+					<div id="standardTimeFormatDisplay" class="timeFormat"><span id="hours"></span><span class="minor">:</span><span id="minutes"></span><span id="seconds" class="minor">:</span></div>
+					<div id="readableTimeFormatDisplay" class="timeFormat"></div>
+					<div id="metricTimeFormatDisplay" class="timeFormat"><span id="metric-centidays"></span><span class="minor">.</span><span id="metric-centidays-fraction" class="minor"></span><span class="minor">LMT</span></div>
+					<div id="unitcircleTimeFormatDisplay" class="timeFormat"><span id="unitcircle-numerator"></span><span id="unitcircle-pi" class="minor" style="display: none">&pi;</span><span id="unitcircle-denominator" class="minor">/180</span></div>
+				</div>
+				<div id="error-message" class="hide-naked"></div>
+				<div id="alarm">
+					<div id="alarm-youtube">
+						<div id="ytapiplayer"></div>
+					</div>
+					<div id="alarm-other"></div>
+				</div>
+			</div>
+			<div id="alarm-list"><ul></ul></div>				
+			<div id="ft">
+				<div id="calendar-help-content" class="hide-naked">
+					<ol>
+						<li>Go to Calendar Settings for the Calendar you want to use.</li>
+						<li>Make sure your Calendar is Public under the "Share this calendar" tab.</li>
+						<li>
+							Find your Calendar ID (The red dotted box shown below)
+							<img src="media/calendar-id.gif"/>
+						</li>
+					</ol>
+				</div>
+                <div id="options" class="hide-naked">
+					<form id="options-form">
+						<dl>
+							<dt>Alarm Dates and Times</dt>
+							<dd>
+								<div>
+									<label for="alarmFormat">Alarm Types</label>
+									<select id="alarmFormat">
+										<option value="singleAlarmFormat" selected="selected">Single Easy Alarm</option>
+										<option value="gcalAlarmFormat">Google Calendar</option>
+									</select>
+								</div>
+								<div id="singleAlarmFormat" class="alarmFormat suboption">
+									<label for="alarm-value" title="Accepts formats like 20s, 20m, 20h, 2055, 12:00 AM, etc.">Single Easy Alarm</label>
+									<input type="text" id="alarm-value" value="" class="text"/>
+								</div>
+								<div id="gcalAlarmFormat" class="alarmFormat suboption">
+									<label for="gcal-address"><a id="calendar-help" class="link">Help</a> Google Calendar ID</label>
+									<input type="text" id="gcal-address" value="" class="text"/>
+									<div>
+										<label for="gcal-one-event-day" class="clickable"><input id="gcal-one-event-day" type="checkbox" class="checkbox" value="on" /> First Event of the Day Only</label>
+									</div>
+									<div>
+										<label for="gcal-events-within" class="clickable">Within <input id="gcal-events-within" type="text" class="text" value="3" /> Days</label>
+									</div>
+									<div>
+										<label for="gcal-events-prior" class="clickable">Adjust <input id="gcal-events-prior" type="text" class="text" value="0" /> Minutes Before Event</label>
+									</div>
+								</div>
+							</dd>
+							<dt>Sources</dt>
+							<dd>
+								<div id="alarm-options">
+									<label for="default-alarm">Default Alarm</label>
+									<select id="default-alarm">
+										<option value="http://www.youtube.com/v/42peBWLbYto" selected="selected">Rage Against the Machine: Wake Up</option>
+										<option value="http://www.youtube.com/v/-50fhqD3HtA">Technotronic: Get Up</option>
+										<option value="http://www.youtube.com/v/T4Igb5Yors4">Andy McKee: For My Father</option>
+										<option value="last.fm/tag/indie">Last.fm Tag: Indie</option>
+										<option value="last.fm/tag/rock">Last.fm Tag: Rock</option>
+										<option value="http://www.pandora.com/?cmd=mini">Pandora Radio</option>
+										<option value="media/train_crossing.mp3">Generic Train Crossing</option>
+										<option value="http://www.voco.uk.com/gmm/d01.mp3">Voco Clock Butler (voco.uk.com)</option>
+									</select>
+									<!-- <input type="text" id="default-alarm" value="http://www.youtube.com/v/42peBWLbYto" class="text"/> -->
+								</div>
+								<div>
+									<button id="delete-alarm-from-list" type="button">Delete</button>
+									<a id="toggle-add-new-alarm" class="toggle link">Add New Alarm</a>
+								</div>
+								<div id="add-new-alarm">
+									<div>
+										<select id="new-alarm-type">
+											<option value="url" selected="selected">URL</option>
+											<option value="youtube-id">Youtube ID</option>
+											<option value="last-fm-tag">Last.fm Tag</option>
+											<option value="last-fm-user">Last.fm User</option>
+										</select>
+										<input type="text" id="add-alarm-value" value="" class="text"/>
+									</div>
+									<div>
+										<label for="add-alarm-label">Label (Optional)</label>
+										<input type="text" id="add-alarm-label" value="" class="text"/>
+									</div>
+									<div>
+										<button id="ok-add-new-alarm" type="button">Add</button>
+										<button id="cancel-add-new-alarm" class="toggle" type="button">Cancel</button>
+									</div>
+								</div>
+								<div>
+									<label for="loopVideos" class="clickable"><input id="loopVideos" type="checkbox" class="checkbox" value="on" /> Repeat (YouTube and MP3 Only, Requires Restart)</label>
+								</div>
+							</dd>
+							<dt>Clock Format</dt>
+							<dd>
+								<div>
+									<label for="isCountdown" class="clickable"><input id="isCountdown" type="checkbox" class="checkbox" value="on" /> Count Down (Alarm Required)</label>
+								</div>
+								<div>
+									<label for="timeFormat">Main Clock Format</label>
+									<select id="timeFormat">
+										<option value="standardTimeFormat" selected="selected">Standard</option>
+										<option value="readableTimeFormat">Readable</option>
+										<option value="metricTimeFormat">Metric</option>
+										<option value="unitcircleTimeFormat">Unit Circle</option>
+									</select>
+								</div>
+								<div id="standardTimeFormat" class="timeFormat suboption">
+									<label for="24hourFormat" class="clickable"><input id="24hourFormat" type="checkbox" class="checkbox" value="on" /> 24 Hour</label>
+									<label for="secondsFormat" class="clickable"><input id="secondsFormat" type="checkbox" class="checkbox" value="on" /> Seconds</label>
+								</div>
+							</dd>
+							<dt>Customize</dt>
+							<dd>
+								<div>
+									<label for="css-skin">
+										Skin
+										<select id="css-skin">
+											<option value="" selected="selected">(None)</option>
+											<option value="skins/red.css">Red Clock</option>
+											<option value="skins/blue.css">Blue Clock</option>
+											<option value="skins/green.css">Green Clock</option>
+										</select>
+									</label>
+								</div>
+								<div id="css-options">
+									<label for="external-css">Your Own Skin Url (CSS)</label>
+									<input type="text" id="external-css" value="http://" class="text"/>
+								</div>
+							</dd>
+						</dl>
+						<div>
+							<button id="save" type="submit">Save Options</button>
+							<!-- <button id="reset-alarms">Reset Alarms</button> -->
+						</div>
+					</form>
+                </div>
+				<div id="menu">
+                    <button id="toggle-options" class="toggle hide-naked">Options</button>
+					<label><a id="test-alarm" class="link hide-naked">Test</a></label>
+					<label id="youtube-cache-indicator" class="hide-naked"></label>
+				</div>
+			</div>
+		</div>
+		<!-- Notes: Opera doesn't fire the onunload, so settings are not saved when the page is left. -->
+		<script type="text/javascript" src="lib/jquery-1.2.1/jquery-1.2.1.pack.js"></script>
+		<script type="text/javascript" src="lib/swfobject_2_0_rc4/swfobject.js"></script>
+		<script type="text/javascript" src="include/alarmd-plugins.js"></script>
+		<script type="text/javascript" src="include/dao.js"></script>
+		<script type="text/javascript" src="include/youtube.js"></script>
+		<script type="text/javascript" src="include/sources.js"></script>
+		<script type="text/javascript" src="include/alarmd.js"></script>
+		<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAy3SKAip7V5MBJX7isXGS8BQgwVrr9c3g1Jd6a7klqh2Z9A4w6hREc4-Ho46UwZAA2MJWs9r0u1vaFg"></script>
+		<script type="text/javascript" src="include/gdata.js"></script>
+		<script type="text/javascript" src="include/onload.js"></script>
+	</body>
+</html>
