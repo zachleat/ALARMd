@@ -72,6 +72,11 @@ var alarmd = (function()
 	}
 
 	var formats = {
+		unixTimeFormat: function(date)
+		{
+			var t = Math.floor(date.getTime()/1000);
+			util.dom.update('#unixTimeFormat', t);
+		},
 		unitcircleTimeFormat: function(date)
 		{
 			function getGCD(x, y) {

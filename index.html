@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!doctype html>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>ALARMd.com Internet Alarm Clock</title>
 		<meta name="author" content="Zach Leatherman, zachleat.com"/>
 		<meta name="description" content="User customizable, browser embedded online internet alarm clock.  Plays your YouTube videos, MP3's, and Last.fm streams."/>
@@ -21,6 +21,7 @@
 				<div id="clock">
 					<div id="standardTimeFormatDisplay" class="timeFormat"><span id="hours"></span><span class="minor">:</span><span id="minutes"></span><span id="seconds" class="minor">:</span></div>
 					<div id="readableTimeFormatDisplay" class="timeFormat"></div>
+					<div id="unixTimeFormat" class="timeFormat"></div>
 					<div id="metricTimeFormatDisplay" class="timeFormat"><span id="metric-centidays"></span><span class="minor">.</span><span id="metric-centidays-fraction" class="minor"></span><span class="minor">LMT</span></div>
 					<div id="unitcircleTimeFormatDisplay" class="timeFormat"><span id="unitcircle-numerator"></span><span id="unitcircle-pi" class="minor" style="display: none">&pi;</span><span id="unitcircle-denominator" class="minor">/180</span></div>
 				</div>
@@ -127,6 +128,7 @@
 									<select id="timeFormat">
 										<option value="standardTimeFormat" selected="selected">Standard</option>
 										<option value="readableTimeFormat">Readable</option>
+										<option value="unixTimeFormat">Unix</option>
 										<option value="metricTimeFormat">Metric</option>
 										<option value="unitcircleTimeFormat">Unit Circle</option>
 									</select>
@@ -170,8 +172,8 @@
 		</div>
 		<!-- Notes: Opera doesn't fire the onunload, so settings are not saved when the page is left. -->
 		<script type="text/javascript" src="lib/jquery-1.2.1/jquery-1.2.1.pack.js"></script>
+		<script type="text/javascript" src="lib/jquery-1.2.1/alarmd-plugins.js"></script>
 		<script type="text/javascript" src="lib/swfobject_2_0_rc4/swfobject.js"></script>
-		<script type="text/javascript" src="include/alarmd-plugins.js"></script>
 		<script type="text/javascript" src="include/dao.js"></script>
 		<script type="text/javascript" src="include/youtube.js"></script>
 		<script type="text/javascript" src="include/sources.js"></script>
