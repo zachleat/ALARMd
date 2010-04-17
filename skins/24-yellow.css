@@ -1,0 +1,13 @@
+#clock { color: #b7b111 }
+
+@font-face {
+	font-family: '7-segfaultRegular';
+	src: url('7segfault/7segfault.eot');
+	src: local('7-segfault Regular'), local('7-segfault'), url('7segfault/7segfault.woff') format('woff'), url('7segfault/7segfault.ttf') format('truetype'), url('7segfault/7segfault.svg#7-segfault') format('svg');
+}
+
+#standardTimeFormatDisplay {
+    font-family: '7-segfaultRegular';
+    font-size: 130%;
+    margin-top: 20px;
+}

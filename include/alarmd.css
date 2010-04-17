@@ -1,5 +1,5 @@
 html { overflow: hidden; }
-body { background-color: #111; color: #999; font-weight: bold; font-size: 94%; font-family: Arial; }
+body { background-color: #111; color: #999; font-weight: bold; font-size: 94%; font-family: Helvetica, Arial; }
 a, .link { text-decoration: underline; cursor: pointer; color: #555; }
 ul { padding: 0; margin: 0; }
 
@@ -7,38 +7,58 @@ label { padding-right: 10px; }
 .naked-mode .hide-naked { display: none !important; }
 #hd { text-align: right; }
 #title { float: left; }
-#ft, #alarm-list { position: absolute; bottom: 0; margin-bottom: 10px; }
-#ft { left: 0; padding-left: 10px; }
-#alarm-list { right: 0; padding-right: 10px; }
+#ft, #alarm-list { position: absolute; bottom: 10px; }
+#ft { right: 10px; }
+#alarm-list { left: 10px; }
 #clock { text-align: center; font-size: 14em; }
-	#clock .minor { font-size: 50%; }
-	#clock .timeFormat { display: none; }
-	#readableTimeFormatDisplay { font-size: 60%; }
+    #clock .minor { font-size: 50%; }
+    #clock .timeFormat { display: none; }
+    #unixTimeFormat,
+    #readableTimeFormatDisplay { font-size: 60%; }
 #error-message { text-align: center; font-size: 80%; }
 
-#menu { float: left; white-space: nowrap; }
-#options { display: none; margin-bottom: 8px; padding: 6px; border: 1px solid #222; width: 280px; z-index: 1; background-color: #1b1b1b; }
-	#options div { padding: 6px; }
-	#options div div { padding: 3px; }
-	#options label a { float: right; }
-	#options .text { width: 260px; }
-	#options .notes { font-size: 80%; }
-	#alarm-value.text { width: 100px; }
-	#gcal-events-within.text, #gcal-events-prior.text { width: 20px; }
-	#calendar-help-content { opacity: 0.9; display: none; background-color: #333; border: 1px solid #222; margin-bottom: 8px; padding: 6px; cursor: pointer; }
-	#calendar-help-content img { cursor: pointer; }
-	.suboption { background-color: #222; }
-	#add-new-alarm { display: none; border: 1px dashed #999; border-width: 1px 0; }
-	#add-alarm-value.text { width: 144px; }
-#alarm-list ul { float: right; list-style-type: none; }
+#menu { white-space: nowrap; margin-right: 80px; }
+#options {
+    position: absolute;
+    right: -302px;
+    top: 0;
+    border-right: 1px solid #222;
+    width: 300px;
+    z-index: 1;
+    background-color: #fff;
+    opacity: 0.86;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+    #toggle-options {
+        position: absolute;
+        right: 10px;
+        bottom: 0;
+        z-index: 100;
+    }
+    #save { display: none; }
+    #options div { padding: 6px; }
+    #options div div { padding: 3px; }
+    #options label a { float: right; }
+    #options .text { width: 96%; }
+    #options .notes { font-size: 80%; }
+    #alarm-value.text { width: 100px; }
+    #gcal-events-within.text, #gcal-events-prior.text { width: 20px; }
+    #calendar-help-content { opacity: 0.9; display: none; background-color: #333; border: 1px solid #222; margin-bottom: 8px; padding: 6px; cursor: pointer; }
+    #calendar-help-content img { cursor: pointer; }
+    #add-new-alarm { display: none; border: 1px dashed #999; border-width: 1px 0; }
+    #add-alarm-value.text { width: 136px; }
+#alarm-list ul { list-style-type: none; }
 #alarm-list li { width: auto; border: 1px solid #222; padding: 4px 6px; margin-left: 8px; float: left; }
 #alarm-list a { color: #555; }
 
-#alarm { bottom:85px; background-color: #000; left:0pt; position:absolute; text-align:center; width:100%; }
+#alarm { bottom:85px; background-color: #000; background-color: rgba(0,0,0,0.8); left:0pt; position:absolute; text-align:center; width:100%; }
 #alarm object, #alarm embed { margin:auto; }
 #alarm span { cursor: pointer; border: 1px solid #999; display:block; margin:auto; width:425px; }
-	#kill-button { font-size: 72px; }
-	#kill-note { border-top:0pt none; font-size:14px; }
+    #alarm #kill-button { font-size: 72px; }
+    #alarm #kill-note { border-width: 0; font-size:14px; }
 .test { text-transform: uppercase; font-size: 80%; }
 
 
@@ -46,4 +66,5 @@ label { padding-right: 10px; }
  * http://docs.jquery.com/Tutorials:Accordion_Menu_(Screencast)
  */
 dl,dd { margin: 0; }
-dt { cursor: pointer; color: #999; border-bottom: 1px solid #999; padding: 3px; margin: 2px; background-color: #444; }
+dd { margin-left: 1em; }
+dt { color: #999; padding: 6px; margin-bottom: 6px; background-color: #444; }

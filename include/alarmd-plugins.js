@@ -1,15 +1,3 @@
-// John Resig's Easy Accordion:
-// http://docs.jquery.com/Tutorials:Accordion_Menu_(Screencast)
-jQuery(function()
-{
-	jQuery("dd:not(:first)").hide();
-	jQuery("dt").click(function(){
-		$("dd:visible").slideUp("slow");
-		$(this).next().slideDown("slow");
-		return false;
-	});
-});
-
 // Cookies
 var cookie = {
 	create: function(name, value, days)
