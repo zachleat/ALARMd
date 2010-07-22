@@ -1,0 +1,61 @@
+Easy Alarm Mode: No more fumbling around when you just want one simple easy-to-add alarm.
+
+Google Calendar Alarm Mode: Customize your alarm schedule to your hearts
+  content, it will load your alarms straight from a publicly available
+  Google Calendar. There are some great features with this:
+* Load only the first calendar event of every day
+* Day Limiter (Example: Only load calendar events within the next 3 days)
+* Minute Adjuster (Example: Alarm me 90 minutes before work without adding 
+    a separate event)
+* Google does a nice job of normalizing dates as well, so you don't
+    have to worry about calendar time syncing. If it says 8AM on your
+    calendar, it will alarm you at 8AM on your computer local time.
+
+New Clock Formats:
+* Human Readable Clock Format: Think Half Past Two or A Quarter Til Twelve.
+    This idea is from Laurence Willmott's Project "It's about Time." I took
+    some liberties with his labeling scheme, I hope he doesn't mind.
+* Metric Time Format: Shows the measurement Centi-days in Local Metric
+    Time. Basically, it shows a percentage of much of the day has passed. If
+    it's 80.000, 80 percent of the day has passed, which coincides with 7:12 PM.
+* Unit Circle Time Format: Displays the time in radians that would be shown if a
+    clock were pasted on top of a unit circle. If its 12 o’clock, it will read π/2.
+    After programming this one, it’s starting to seem normal in my brain. Oh, it’s
+    3π/2? Time to eat dinner. How the hell did it get 2π/3??
+* Human Readable Alarm Dates: Think “29 Minutes”, “1 Hour”, “2 Days Ago”.
+
+Preloads all Youtube videos in the background when the page loads using the new
+  Youtube JavaScript? API. This means that alarmd no longer needs an internet
+  connection at the time the alarm goes off (it will need internet to 
+  pre-load the video).
+
+Repeat option for YouTube videos and MP3’s. Turn infinite loop on or off. Careful
+  with this one. Don’t leave ALARMd going if you’re not going to be home when
+  it goes off.
+
+CSS Skins, Use the really simple ones I’ve included for Red, Green, or Blue, or 
+  include your own URL to your own hosted CSS file.
+
+Provides CSS class hooks to spice up your skins. These are CSS classes that are
+  added to the body tag to allow you to style the alarm differently depending on
+  the alarm clock’s current state. Future enhancements might include more than 
+  just alarm-based hooks: Year, day of the year, and hour of the day might be useful,
+  that way you could style the clock to show a lighter background during the day and
+  a darker background at night.
+
+  .alarmWithin30Minutes
+  .alarmWithin15Minutes
+  .alarmWithin5Minutes
+  .alarmWithin1Minute
+  .alarmActive (Alarm is being played)
+
+Test Button to make sure the video or source is working and to check your volume.
+
+Count Down mode to show the time between now and the first alarm.
+
+Store your own list of alarm sources, using YouTube?, MP3, Last.FM, or any URL (Pandora
+  is included).
+
+Military time (24 hour clock) and seconds toggle.
+
+Naked mode (get rid of the extras)
