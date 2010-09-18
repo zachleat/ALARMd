@@ -1,4 +1,4 @@
-if(typeof console == undefined) {
+if(typeof console === 'undefined') {
 	var console = {log: function() {}};
 }
 
@@ -175,7 +175,7 @@ var sources = {
 		function addTransientAlarm(val)
 		{
 			alarmd.resetAlarms();
-			var date = util.parseTime(val);
+			var date = Date.parse(val);
 			if(date) {
 				alarmd.addAlarmDate(date, 'Single Easy Alarm');
 				return true;
@@ -557,12 +557,12 @@ var alarmd = (function()
 				isWithin		= !dao.getGcalEventsWithin() ? true : daysInFuture <= dao.getGcalEventsWithin(),
 				isUnique		= !dao.isOneEventPerDay() ? true : isUniqueDay(date);
 
-            if((key == 0 || !dao.isGcalAlarmFormat() || (isWithin && isUnique)) && daysInFuture > 0) {
+            if((key === 0 || !dao.isGcalAlarmFormat() || (isWithin && isUnique)) && daysInFuture > 0) {
                 alarms[key] = date;
 				if(target) {
 					targets[key] = target;
 				}
-                if(key == 0) {
+                if(key === 0) {
                     content.push('<div class="dateDiff" title="' + util.date.objToIso8601(date) + '">' + util.date.objToIso8601(date) + '</div>');
                 }
                 content.push('<div class="date">' + formatDate(date, true) + '</div>');
@@ -570,15 +570,9 @@ var alarmd = (function()
                     content.push(' <div class="description">' + label + '</div>');
                 }
                 jQuery('#alarm-list ul').append('<li id="alarmKey'+key+'"' + (key > 0 ? ' class="hide-naked"' : '') + '>' + content.join('') + '</li>');
-				if(key == 0) {
+				if(key === 0) {
 					jQuery('#alarm-list .dateDiff').humane_dates();
 				}
-				/* jQuery('#alarmKey'+key).click(function(event)
-				{
-					if(!jQuery(event.target).is('a')) {
-						alarmd.test(key);
-					}
-				}); */
             }
 		},
         trigger: function(key, bTesting)

@@ -1,31 +1,31 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>ALARMd.com Internet Alarm Clock</title>
-        <meta name="author" content="Zach Leatherman, zachleat.com"/>
-        <meta name="description" content="User customizable, browser embedded online internet alarm clock.  Plays your YouTube videos, MP3's, and Last.fm streams."/>
-        <meta name="keywords" content="alarm clock, internet alarm clock, online alarm clock, alarm, youtube, last.fm"/>
-        <meta name="robots" content="index, follow"/>
-        <link rel="stylesheet" type="text/css" href="include/alarmd.css"/>
-    </head>
-    <body>
-        <div id="doc3" class="yui-t7">
-            <noscript>JavaScript is required to use ALARMd, the Internet Alarm Clock.  Instead of actually using it without JavaScript, you can go ahead and <a href="http://www.zachleat.com/web/2007/06/18/wake-up-to-youtube-on-my-internet-alarm-clock/" title="Read about ALARMd">read about what fun</a> you could be having if you had JavaScript turned on.</noscript>
-            <div id="hd">
-                <label id="title"><a href="http://www.alarmd.com">ALARMd<span>.com</span></a><span class="hide-naked"> by <a href="http://www.zachleat.com/">zachleat</a></span><span id="calendarTitle"></span></label>
-                <label id="about" class="hide-naked"><a href="http://www.zachleat.com/web/2008/04/06/alarmd-2-beta-with-google-calendar-integration/" title="Read about ALARMd">Readme</a></label>
-                <label for="naked-mode"><input id="naked-mode" type="checkbox" class="checkbox" value="on" /> Naked</label>
-            </div>
-            <div id="bd">
-                <div id="clock">
-                    <div id="standardTimeFormatDisplay" class="timeFormat"><span id="hours"></span><span class="minor">:</span><span id="minutes"></span><span id="seconds" class="minor">:</span></div>
-                    <div id="readableTimeFormatDisplay" class="timeFormat"></div>
-                    <div id="unixTimeFormat" class="timeFormat"></div>
-                    <div id="metricTimeFormatDisplay" class="timeFormat"><span id="metric-centidays"></span><span class="minor">.</span><span id="metric-centidays-fraction" class="minor"></span><span class="minor">LMT</span></div>
-                    <div id="unitcircleTimeFormatDisplay" class="timeFormat"><span id="unitcircle-numerator"></span><span id="unitcircle-pi" class="minor" style="display: none">&pi;</span><span id="unitcircle-denominator" class="minor">/180</span></div>
-                </div>
-                <div id="error-message" class="hide-naked"></div>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>ALARMd.com Internet Alarm Clock</title>
+		<meta name="author" content="Zach Leatherman, zachleat.com"/>
+		<meta name="description" content="User customizable, browser embedded online internet alarm clock.  Plays your YouTube videos, MP3's, and Last.fm streams."/>
+		<meta name="keywords" content="alarm clock, internet alarm clock, online alarm clock, alarm, youtube, last.fm"/>
+		<meta name="robots" content="index, follow"/>
+		<link rel="stylesheet" type="text/css" href="include/alarmd.css"/>
+	</head>
+	<body>
+		<div id="doc3" class="yui-t7">
+			<noscript>JavaScript is required to use ALARMd, the Internet Alarm Clock.  Instead of actually using it without JavaScript, you can go ahead and <a href="http://www.zachleat.com/web/2007/06/18/wake-up-to-youtube-on-my-internet-alarm-clock/" title="Read about ALARMd">read about what fun</a> you could be having if you had JavaScript turned on.</noscript>
+			<div id="hd">
+				<label id="title" class="hide-naked"><a href="http://www.alarmd.com">ALARMd<span>.com</span></a> by <a href="http://www.zachleat.com/">zachleat</a><span id="calendarTitle"></span></label>
+				<label id="about" class="hide-naked"><a href="http://www.zachleat.com/web/2008/04/06/alarmd-2-beta-with-google-calendar-integration/" title="Read about ALARMd">Readme</a></label>
+				<label for="naked-mode"><input id="naked-mode" type="checkbox" class="checkbox" value="on" /> <span class="hide-naked">Naked</span></label>
+			</div>
+			<div id="bd">
+				<div id="clock">
+					<div id="standardTimeFormatDisplay" class="timeFormat"><span id="hours"></span><span class="minor">:</span><span id="minutes"></span><span id="seconds" class="minor">:</span></div>
+					<div id="readableTimeFormatDisplay" class="timeFormat"></div>
+					<div id="unixTimeFormat" class="timeFormat"></div>
+					<div id="metricTimeFormatDisplay" class="timeFormat"><span id="metric-centidays"></span><span class="minor">.</span><span id="metric-centidays-fraction" class="minor"></span><span class="minor">LMT</span></div>
+					<div id="unitcircleTimeFormatDisplay" class="timeFormat"><span id="unitcircle-numerator"></span><span id="unitcircle-pi" class="minor" style="display: none">&pi;</span><span id="unitcircle-denominator" class="minor">/180</span></div>
+				</div>
+				<div id="error-message" class="hide-naked"></div>
                 <div id="calendar-help-content" class="hide-naked">
                     <ol>
                         <li>Go to Calendar Settings for the Calendar you want to use.</li>
@@ -36,22 +36,22 @@
                         </li>
                     </ol>
                 </div>
-                <div id="alarm">
-                    <div id="alarm-youtube">
-                        <div id="ytapiplayer"></div>
-                    </div>
-                    <div id="alarm-other"></div>
-                </div>
-            </div>
-            <div id="alarm-list"><ul></ul></div>                
-            <div id="ft">
-                <div id="menu">
+				<div id="alarm">
+					<div id="alarm-youtube">
+						<div id="ytapiplayer"></div>
+					</div>
+					<div id="alarm-other"></div>
+				</div>
+			</div>
+			<div id="alarm-list" class="hide-naked"><ul></ul></div>				
+			<div id="ft">
+				<div id="menu">
                     <label id="youtube-cache-indicator" class="hide-naked"></label>
                     <label><a id="test-alarm" class="link hide-naked">Test</a></label>
-                </div>
+				</div>
                 <button id="toggle-options" class="hide-naked">Options</button>
-            </div>
-        </div>
+			</div>
+		</div>
         <div id="options" class="hide-naked">
             <form id="options-form">
                  <dl>
@@ -171,152 +171,166 @@
                  </div>
              </form>
          </div>
-        <!-- Notes: Opera doesn't fire the onunload, so settings are not saved when the page is left. -->
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-        <script type="text/javascript" src="include/alarmd-plugins.js"></script>
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-        <script type="text/javascript" src="//www.google.com/jsapi?key=ABQIAAAAy3SKAip7V5MBJX7isXGS8BQgwVrr9c3g1Jd6a7klqh2Z9A4w6hREc4-Ho46UwZAA2MJWs9r0u1vaFg"></script>
+		<!-- Notes: Opera doesn't fire the onunload, so settings are not saved when the page is left. -->
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/date.js"></script>
+		<script type="text/javascript" src="include/alarmd-plugins.js"></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+		<script type="text/javascript" src="//www.google.com/jsapi?key=ABQIAAAAy3SKAip7V5MBJX7isXGS8BQgwVrr9c3g1Jd6a7klqh2Z9A4w6hREc4-Ho46UwZAA2MJWs9r0u1vaFg"></script>
         <script type="text/javascript" src="include/api.js"></script>
         <script type="text/javascript" src="include/alarmd.js"></script>
         <script type="text/javascript">
         jQuery(function()
-        {
-            // change wasn't firing in IE on a checkbox, click fires even when label is clicked
-            jQuery('#naked-mode').click(function(event)
-            {
-                jQuery('body').toggleClass('naked-mode');
-            });
-            jQuery('#24hourFormat').change(alarmd.reformatAlarmDates);
-            jQuery('#options-form').submit(function()
-            {
-                alarmd.save();
-                return false;
-            });
-            $('#cancel').click(function()
-            {
-                $('#toggle-options').trigger('click');
-                return false;
-            });
-            $('#toggle-options').click(function()
-            {
-                var $t = $(this),
-                    cls = 'expanded',
+  		{
+  		    // change wasn't firing in IE on a checkbox, click fires even when label is clicked
+  		    jQuery('#naked-mode').click(function(event)
+  		    {
+  		        jQuery('body').toggleClass('naked-mode');
+  		    });
+  		    jQuery('#24hourFormat').change(alarmd.reformatAlarmDates);
+  		    jQuery('#options-form').submit(function()
+  		    {
+  		        alarmd.save();
+  		        return false;
+  		    });
+  		    $('#cancel').click(function()
+    		{
+  		        $('#toggle-options').trigger('click');
+  		        return false;
+    		});
+  		    $('#toggle-options').click(function()
+    		{
+  		        var $t = $(this),
+  		            cls = 'expanded',
                     on = $t.hasClass(cls),
                     $options = $('#options');
 
-                if(on) {
+  		        if(on) {
                   $t.html('Options');
                   $t.add($options).removeClass(cls);
                   alarmd.save();
-                } else {
-                  $t.html('Save Options');
+  		        } else {
+  		          $t.html('Save Options');
                   $t.add($options).addClass(cls);
-                }
+  		        }
 
-                $options.animate({
-                    right: on ? '-302px' : '0px',
-                  }, 600);
-            });
-            jQuery('.toggle').click(function()
-            {
-                var id = jQuery(this).attr('id');
-                var target = id.substr(id.split('-')[0].length + 1); // toggle- or cancel-
-                jQuery('#'+target).slideToggle('slow', function()
-                {
-                    // causes an error in IE.
-                    //jQuery('select:visible, input:visible', this).focus();
-                });
-            });
-            jQuery('#test-alarm').click(function()
-            {
-                var str;
-                if(jQuery(this).html() == 'Hide Test') {
-                    str = 'Test';
-                    alarmd.kill(true);
-                } else {
-                    str = 'Hide Test';
-                    alarmd.trigger(0, true);
-                }
-                util.dom.update(this, str);
-                return false;
-            });
-            jQuery('#calendar-help').click(function()
-            {
-                jQuery('#calendar-help-content').slideToggle();
-            });
-            jQuery('#calendar-help-content').click(function()
-            {
-                jQuery(this).slideToggle();
-            });
-            jQuery(document).keyup(function(event) // otherwise it will trigger by just holding it down.
-            {
-                if(!jQuery(event.target).is('input, select, button')) {
-                    // Unspecified IE error
-                    alarmd.keymash.execute();
-                }
-            });
+  		    	$options.animate({
+  		    	    right: on ? '-302px' : '0px',
+  		    	  }, 600);
+    		});
+  		    jQuery('.toggle').click(function()
+  		    {
+  		        var id = jQuery(this).attr('id');
+  		        var target = id.substr(id.split('-')[0].length + 1); // toggle- or cancel-
+  		        jQuery('#'+target).slideToggle('slow', function()
+  		        {
+  		            // causes an error in IE.
+  		            //jQuery('select:visible, input:visible', this).focus();
+  		        });
+  		    });
+  		    jQuery('#test-alarm').click(function()
+  		    {
+  		        var str;
+  		        if(jQuery(this).html() == 'Hide Test') {
+  		            str = 'Test';
+  		            alarmd.kill(true);
+  		        } else {
+  		            str = 'Hide Test';
+  		            alarmd.trigger(0, true);
+  		        }
+  		        util.dom.update(this, str);
+  		        return false;
+  		    });
+  		    jQuery('#calendar-help').click(function()
+  		    {
+  		        jQuery('#calendar-help-content').slideToggle();
+  		    });
+  		    jQuery('#calendar-help-content').click(function()
+  		    {
+  		        jQuery(this).slideToggle();
+  		    });
+  		    jQuery(document).keyup(function(event) // otherwise it will trigger by just holding it down.
+  		    {
+  		        if(!jQuery(event.target).is('input, select, button')) {
+  		            // Unspecified IE error
+  		            alarmd.keymash.execute();
+  		        }
+  		    });
 
-            function optionChange()
-            {
-                var $t = jQuery(this);
-                var format = $t.val();
-                jQuery('.'+$t.attr('id')).hide();
-                jQuery('#'+format+'Display').show();
-                jQuery('#'+format).show();
-            }
+  		    function optionChange()
+  		    {
+  		        var $t = jQuery(this);
+  		        var format = $t.val();
+  		        jQuery('.'+$t.attr('id')).hide();
+  		        jQuery('#'+format+'Display').show();
+  		        jQuery('#'+format).show();
+  		    }
 
-            jQuery('#timeFormat').change(function()
-            {
-                var val = jQuery(this).val();
-                jQuery('#'+val+'Display').show();
-                if(val == 'metricTimeFormat') {
-                    alarmd.setInterval(864);
-                } else {
-                    alarmd.setInterval(1000);
-                }
-                optionChange.call(this);
-            }).change();
+  		    jQuery('#timeFormat').change(function()
+  		    {
+  		        var val = jQuery(this).val();
+  		        jQuery('#'+val+'Display').show();
+  		        if(val == 'metricTimeFormat') {
+  		            alarmd.setInterval(864);
+  		        } else {
+  		            alarmd.setInterval(1000);
+  		        }
+  		        optionChange.call(this);
+  		    }).change();
 
-            jQuery('#alarmFormat').change(optionChange).change();
-            jQuery('#ok-add-new-alarm').click(function()
-            {
-                var val,
-                    label,
-                    source = jQuery('#add-alarm-value').val();
+  		    jQuery('#alarmFormat').change(optionChange).change();
+  		    jQuery('#ok-add-new-alarm').click(function()
+  		    {
+  		        var val,
+  		            label,
+  		            source = jQuery('#add-alarm-value').val();
 
-                switch(jQuery('#new-alarm-type').val()) {
-                    case 'youtube-id':
-                        val = 'http://www.youtube.com/v/'+source;
-                        break;
-                    case 'last-fm-tag':
-                        val = 'last.fm/tag/'+source;
-                        break;
-                    case 'last-fm-user':
-                        val = 'last.fm/user/'+source;
-                        break;
-                    default:
-                        val = source;
-                        break;
-                }
-                var label = jQuery('#add-alarm-label').val() || val;
-                if(val) {
-                    jQuery('#default-alarm').append('<option value="'+val+'">'+label+'</option>');
-                }
-                jQuery('#add-new-alarm').slideToggle();
-                return false;
-            });
-            jQuery('#delete-alarm-from-list').click(function()
-            {
-                var selected = jQuery('#default-alarm option:selected');
-                if(confirm('Are you sure you want to delete '+selected.text()+'?')) {
-                    selected.remove();
-                }
-                return false;
-            });
+  		        switch(jQuery('#new-alarm-type').val()) {
+  		            case 'youtube-id':
+  		                val = 'http://www.youtube.com/v/'+source;
+  		                break;
+  		            case 'last-fm-tag':
+  		                val = 'last.fm/tag/'+source;
+  		                break;
+  		            case 'last-fm-user':
+  		                val = 'last.fm/user/'+source;
+  		                break;
+  		            default:
+  		                val = source;
+  		                break;
+  		        }
+  		        var label = jQuery('#add-alarm-label').val() || val;
+  		        if(val) {
+  		            jQuery('#default-alarm').append('<option value="'+val+'">'+label+'</option>');
+  		        }
+  		        jQuery('#add-new-alarm').slideToggle();
+  		        return false;
+  		    });
+  		    jQuery('#delete-alarm-from-list').click(function()
+  		    {
+  		        var selected = jQuery('#default-alarm option:selected');
+  		        if(confirm('Are you sure you want to delete '+selected.text()+'?')) {
+  		            selected.remove();
+  		        }
+  		        return false;
+  		    });
 
-            youtube.onload();
-            alarmd.load();
-        });
+  		    youtube.onload();
+  		    alarmd.load();
+  		});
+
+        // Google Analytics
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-588046-1']);
+        _gaq.push(['_trackPageview']);
+      
+        (function() {
+          var ga = document.createElement('script');
+          ga.type = 'text/javascript';
+          ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          document.body.appendChild(ga);
+        })();
         </script>
-    </body>
+	</body>
 </html>
