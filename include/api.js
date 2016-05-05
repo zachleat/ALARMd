@@ -42,7 +42,7 @@ var youtube = (function()
 			//var key = 'AI39si4z_iLZtEv5BXis1xhDhvS1OvTkWIbJH4TRePoiEEtMzFT61q24pUTHPSL7i_tEtPZJdCHivmihaC0OG10GW3cvdrvDWg';
 			//swfobject.embedSWF('http://gdata.youtube.com/apiplayer?key='+key+youtube.config()+'&enablejsapi=1&playerapiid=ytplayer', 'ytapiplayer', '425', '356', '8', null, null, params, atts);
 			var key = 'AI39si4z_iLZtEv5BXis1xhDhvS1OvTkWIbJH4TRePoiEEtMzFT61q24pUTHPSL7i_tEtPZJdCHivmihaC0OG10GW3cvdrvDWg';
-			swfobject.embedSWF('http://gdata.youtube.com/apiplayer?version=3&key='+key+youtube.config()+'&enablejsapi=1&playerapiid=ytplayer', 'ytapiplayer', '425', '356', '8', null, null, params, atts);
+			swfobject.embedSWF('https://gdata.youtube.com/apiplayer?version=3&key='+key+youtube.config()+'&enablejsapi=1&playerapiid=ytplayer', 'ytapiplayer', '425', '356', '8', null, null, params, atts);
 
 			// when finished, calls onYouTubePlayerReady, which calls youtube.init()
 		},

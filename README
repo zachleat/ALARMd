@@ -1,5 +1,5 @@
 ALARMd is a User customizable, browser embedded online internet alarm clock capable of
-playing YouTube videos, MP3's, and Last.fm streams.
+playing YouTube videos, MP3's.
 
 
 Feature List
@@ -60,7 +60,7 @@ Test Button to make sure the video or source is working and to check your volume
 
 Count Down mode to show the time between now and the first alarm.
 
-Store your own list of alarm sources, using YouTube?, MP3, Last.FM, or any URL (Pandora
+Store your own list of alarm sources, using YouTube?, MP3, or any URL (Pandora
   is included).
 
 Military time (24 hour clock) and seconds toggle.

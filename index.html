@@ -4,8 +4,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>ALARMd.com Internet Alarm Clock</title>
 		<meta name="author" content="Zach Leatherman, zachleat.com"/>
-		<meta name="description" content="User customizable, browser embedded online internet alarm clock.  Plays your YouTube videos, MP3's, and Last.fm streams."/>
-		<meta name="keywords" content="alarm clock, internet alarm clock, online alarm clock, alarm, youtube, last.fm"/>
+		<meta name="description" content="User customizable, browser embedded online internet alarm clock.  Plays your YouTube videos, MP3's."/>
+		<meta name="keywords" content="alarm clock, internet alarm clock, online alarm clock, alarm, youtube"/>
 		<meta name="robots" content="index, follow"/>
 		<link rel="stylesheet" type="text/css" href="include/alarmd.css"/>
 	</head>
@@ -90,8 +90,6 @@
                                  <option value="http://www.youtube.com/v/B1T8xgHdMEM" selected="selected">Rage Against the Machine: Wake Up</option>
                                  <option value="http://www.youtube.com/v/fbQpyieSkOc">Technotronic: Get Up</option>
                                  <option value="http://www.youtube.com/v/T4Igb5Yors4">Andy McKee: For My Father</option>
-                                 <option value="last.fm/tag/indie">Last.fm Tag: Indie</option>
-                                 <option value="last.fm/tag/rock">Last.fm Tag: Rock</option>
                                  <option value="http://www.pandora.com/?cmd=mini">Pandora Radio</option>
                                  <option value="media/train_crossing.mp3">Generic Train Crossing</option>
                                  <option value="http://www.voco.uk.com/gmm/d01.mp3">Voco Clock Butler (voco.uk.com)</option>
@@ -107,8 +105,6 @@
                                  <select id="new-alarm-type">
                                      <option value="url" selected="selected">URL</option>
                                      <option value="youtube-id">Youtube ID</option>
-                                     <option value="last-fm-tag">Last.fm Tag</option>
-                                     <option value="last-fm-user">Last.fm User</option>
                                  </select>
                                  <input type="text" id="add-alarm-value" value="" class="text"/>
                              </div>
@@ -288,12 +284,6 @@
   		        switch(jQuery('#new-alarm-type').val()) {
   		            case 'youtube-id':
   		                val = 'http://www.youtube.com/v/'+source;
-  		                break;
-  		            case 'last-fm-tag':
-  		                val = 'last.fm/tag/'+source;
-  		                break;
-  		            case 'last-fm-user':
-  		                val = 'last.fm/user/'+source;
   		                break;
   		            default:
   		                val = source;

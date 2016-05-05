@@ -235,7 +235,7 @@ var sources = {
 
 var alarmd = (function()
 {
-	var DEFAULT_VIDEO = 'http://www.youtube.com/v/42peBWLbYto';
+	var DEFAULT_VIDEO = 'https://www.youtube.com/v/42peBWLbYto';
 
 	var alarms = [],
         targets = [],
@@ -441,30 +441,13 @@ var alarmd = (function()
 		function isYouTube(url) {
 			return url.indexOf('youtube.com') > -1;
 		}
-		function isLastFm(url) {
-			return url.indexOf('last.fm') > -1;
-		}
 
 		if(isMp3(url)) {
 			return '<embed src="lib/flash_mp3_player/mp3player.swf" width="425" height="20" allowfullscreen="true" flashvars="&file=' + url + '&height=20&width=425&showdigits=false&autostart=true&repeat='+(dao.getLoop()?'true':'false')+'&shuffle=false&volume=100&useaudio=false&usecaptions=false&usefullscreen=false&usekeys=false" />';
 		} else if(isYouTube(url)) {
 			url = url.replace(/watch\?v\=/, 'v/');
-			//<object width="425" height="355"><param name="movie" value="http://www.youtube.com/v/CQzUsTFqtW0&rel=1&border=0"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/CQzUsTFqtW0&rel=1&border=0" type="application/x-shockwave-flash" wmode="transparent"width="425" height="355"></embed></object>
+			//<object width="425" height="355"><param name="movie" value="https://www.youtube.com/v/CQzUsTFqtW0&rel=1&border=0"></param><param name="wmode" value="transparent"></param><embed src="https://www.youtube.com/v/CQzUsTFqtW0&rel=1&border=0" type="application/x-shockwave-flash" wmode="transparent"width="425" height="355"></embed></object>
 			return '<embed id="youtube-player" src="' + url + youtube.config() + '&autoplay=1" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed>';
-		} else if(isLastFm(url)) {
-			//content = '<style type="text/css">table.lfmWidget20070527022148 td {margin:0 !important;padding:0 !important;border:0 !important;}table.lfmWidget20070527022148 tr.lfmHead a:hover {background:url(http://panther1.last.fm/widgets/images/en/header/radio/regular_black.gif) no-repeat 0 0 !important;}table.lfmWidget20070527022148 tr.lfmEmbed object {float:left;}table.lfmWidget20070527022148 tr.lfmFoot td.lfmConfig a:hover {background:url(http://panther1.last.fm/widgets/images/en/footer/black_np.gif) no-repeat 0 0 !important;;}table.lfmWidget20070527022148 tr.lfmFoot td.lfmView a:hover {background:url(http://panther1.last.fm/widgets/images/en/footer/black_np.gif) no-repeat -85px 0 !important;}table.lfmWidget20070527022148 tr.lfmFoot td.lfmPopup a:hover {background:url(http://panther1.last.fm/widgets/images/en/footer/black_np.gif) no-repeat -159px 0 !important;}</style>';
-			//content += '<table class="lfmWidget20070527022148" cellpadding="0" cellspacing="0" border="0" style="width:184px;"><tr class="lfmHead"><td><a title="Music tagged indie " href="http://www.last.fm/listen/globaltags/indie" target="_blank" style="display:block;overflow:hidden;height:20px;width:184px;background:url(http://panther1.last.fm/widgets/images/en/header/radio/regular_black.gif) no-repeat 0 -20px;text-decoration:none;"></a></td></tr><tr class="lfmEmbed"><td><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="184" height="140" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab%23version=7,0,0,0" style="float:left;"><param name="bgcolor" value="000000" /><param name="movie" value="http://panther1.last.fm/widgets/radio/3.swf" /><param name="quality" value="high" /><param name="allowScriptAccess" value="sameDomain" /><param name="FlashVars" value="lfmMode=radio&amp;radioURL=globaltags%2Findie&amp;title=Music+tagged+indie+&amp;theme=black&amp;autostart=1" /><embed src="http://panther1.last.fm/widgets/radio/3.swf" type="application/x-shockwave-flash" name="widgetPlayer" bgcolor="000000" width="184" height="140" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"  FlashVars="lfmMode=radio&amp;radioURL=globaltags%2Findie&amp;title=Music+tagged+indie+&amp;theme=black&amp;autostart=1" allowScriptAccess="sameDomain"></embed></object></td></tr><tr class="lfmFoot"><td style="background:url(http://panther1.last.fm/widgets/images/footer_bg/black.gif) repeat-x 0 0;text-align:right;"><table cellspacing="0" cellpadding="0" border="0" style="width:184px;"><tr><td class="lfmConfig"><a href="http://www.last.fm/widgets/?widget=radio&amp;url=globaltags%2Findie&amp;colour=black&amp;width=regular&amp;autostart=1&amp;from=widget" title="Get your own" target="_blank" style="display:block;overflow:hidden;width:85px;height:20px;float:right;background:url(http://panther1.last.fm/widgets/images/en/footer/black_np.gif) no-repeat 0 -20px;text-decoration:none;"></a></td><td class="lfmView" style="width:74px;"><a href="http://www.last.fm/" title="Visit Last.fm" target="_blank" style="display:block;overflow:hidden;width:74px;height:20px;background:url(http://panther1.last.fm/widgets/images/en/footer/black_np.gif) no-repeat -85px -20px;text-decoration:none;"></a></td><td class="lfmPopup"style="width:25px;"><a href="http://www.last.fm/widgets/popup/?widget=radio&amp;url=globaltags%2Findie&amp;colour=black&amp;width=regular&amp;autostart=1&amp;from=widget&amp;resize=1" title="Load this radio in a pop up" target="_blank" style="display:block;overflow:hidden;width:25px;height:20px;background:url(http://panther1.last.fm/widgets/images/en/footer/black_np.gif) no-repeat -159px -20px;text-decoration:none;" onclick="window.open(this.href + \'&amp;resize=0','lfm_popup','height=240,width=234,resizable=yes,scrollbars=yes\'); return false;"></a></td></tr></table></td></tr></table>';
-			var mode = url.split( '/' );
-			if(mode[1].toLowerCase() == 'tag') {
-				var tag = mode[2] || 'indie';
-				return '<embed src="http://panther1.last.fm/widgets/radio/3.swf" type="application/x-shockwave-flash" name="widgetPlayer" bgcolor="000000" width="184" height="140" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"  FlashVars="lfmMode=radio&amp;radioURL=globaltags%2F' + tag + '&amp;title=Music+tagged+' + tag + '+&amp;theme=black&amp;autostart=1" allowScriptAccess="sameDomain"></embed>';
-			} else if(mode[1].toLowerCase() == 'user') {
-				var user = mode[2] || 'theweezel';
-				return '<embed src="http://panther1.last.fm/widgets/radio/3.swf" type="application/x-shockwave-flash" name="widgetPlayer" bgcolor="000000" width="184" height="140" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"  FlashVars="lfmMode=radio&amp;radioURL=user%2F' + user + '%2Fpersonal&amp;title=' + user + '%E2%80%99s+Radio+Station&amp;theme=black&amp;autostart=1" allowScriptAccess="sameDomain"></embed>';
-			} else if(mode[1].toLowerCase() == 'playlist') {
-				// content = '<embed src="http://panther1.last.fm/widgets/playlist/3.swf" type="application/x-shockwave-flash" name="widgetPlayer" bgcolor="000000" width="184" height="284" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"  FlashVars="lfmMode=playlist&amp;resourceType=37&amp;resourceID=101470&amp;radioURL=user%2F' + user + '%2Fplaylist&amp;username=' + user + '&amp;title=' + user + '%E2%80%99s+Playlist&amp;theme=black&amp;autostart=1" allowScriptAccess="sameDomain"></embed>';
-				return '';
-			}
 		}
 		return false; // open new window with url
 	};
